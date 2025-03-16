@@ -150,6 +150,7 @@ section {
 }
 .api-page #distributionCarousel {
     min-height: auto;
+    margin-top: 20px;
 }
 .api-page #distributionCarousel .carousel-inner .carousel-item {
     min-height: 450px;
