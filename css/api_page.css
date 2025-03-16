@@ -1,0 +1,578 @@
+img {
+    width: 100%;
+}
+section {
+    padding-block: 60px;
+}
+.mobile-only {
+    display: none;
+}
+.desktop-only {
+    display: block;
+}
+.fade-in-animation {
+    transform: translateY(200%);
+    animation: fade-in-y 1.5s forwards 0.5s, fade-in-opacity 2s forwards 0.2s;
+}
+#app header ul li a {
+    color: #fff;
+}
+.api-page .nav-cta a {
+    font-size: 16px;
+}
+.api-page-title {
+    font-size: 4rem;
+    line-height: 95%;
+    width: 100%;
+    max-width: 450px;
+}
+.api-page-title ~ p {
+    line-height: 125%;
+    width: 100%;
+    max-width: 580px;
+}
+.api-page .hero-section .hero-left {
+    gap: 20px;
+}
+.api-hero-button {
+    position: relative;
+    background: #987DCE;
+    padding-block: 8px;
+    padding-inline: 8px 25px;
+    gap: 25px;
+    font-family: "AeonikMedium", Helvetica;
+    font-size: 1rem;
+    display: flex;
+}
+.api-hero-button::before {
+    content: "";
+    position: relative;
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #987DCE;
+    background-image: url("../img/BackArrow_Icon_UIA.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.hero-section {
+    overflow: visible;
+}
+.hero-section .right-section {
+    max-width: 800px;
+    margin-right: auto;
+}
+.hero-section .hero-right-images{
+    position: relative;
+}
+.hero-section .hero-right-images .code-image{
+    max-width: 470px;
+}
+.hero-section .hero-right-images .mobile-image{
+    position: absolute;
+    right: -98px;
+    top: 72px;
+    max-width: 250px;
+}
+.hero-section .hero-right-text {
+    width: 80%;
+    margin-inline: auto;
+    text-align: center;
+    padding-block: 50px;
+}
+.hero-section .hero-right-text p {
+    font-size: 22px;
+    max-width: 260px;
+}
+.onboard-users-section .section-headings {
+    max-width: 450px;
+    margin-inline: auto;
+}
+.onboard-users-section .section-headings .row {
+    gap: 20px;
+}
+.onboard-users-section .section-headings h2 {
+    font-size: 4rem;
+}
+.onboard-users-section .section-headings p {
+    padding-inline: 10px;
+}
+.onboard-users-section .cards-wrapper {
+    width: 95%;
+    max-width: 1650px;
+    margin-inline: auto;
+}
+.onboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    column-gap: 15px;
+}
+.onboard-cards .onboard-card {
+    background: #191919;
+    border-radius: 40px;
+    padding-block: 44px 0px;
+}
+.onboard-card .card-heading h2 {
+    margin-inline: auto;
+    max-width: 220px;
+    font-size: 2rem;
+    line-height: 110%;
+    text-align: center;
+    margin-bottom: 32px;
+    text-wrap-style: pretty;
+}
+.onboard-card .card-para,
+.onboard-card .card-heading {
+    max-width: 420px;
+    margin-inline: auto
+}
+.onboard-card .card-para p {
+    font-size: 16px;
+    line-height: 110%;
+    text-align: center;
+    opacity: 0.3;
+}
+.onboard-card.activate-card .card-para {
+    max-width: 250px;
+}
+.onboard-card.activate-card .card-image {
+    /* max-width: 240px; */
+    margin-inline: auto;
+    margin-block: 30px 0px;
+    width: 39%;
+}
+.onboard-card.buying-card .card-image {
+    margin-top: -65px;
+}
+.api-page #distributionCarousel {
+    min-height: auto;
+}
+.api-page #distributionCarousel .carousel-inner .carousel-item {
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+}
+.carousel-slide-title ~ p {
+    font-size: 1rem;
+    max-width: 400px;
+    line-height: 125%;
+}
+.carousel-buttons {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+.carousel-buttons a {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    background: transparent;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    margin: 0 6px;
+    font-size: 0.9rem;
+}
+.carousel-buttons a:hover, .carousel-buttons li.active a {
+    border: 1px solid #fff;
+}
+.available-apis ul {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-top: 12px;
+}
+.available-apis ul li {
+    padding: 4px 11px;
+    background-color: #2f2f2f;
+    border-radius: 5px;
+}
+.carousel-item .slide-image {
+    max-width: 738px;
+    width: 90%;
+    margin-left: auto;
+    max-height: 560px;
+    height: 100%;
+}
+.carousel-item h2 {
+    font-size: 2.2rem;
+    max-width: 300px;
+    line-height: 95%;
+}
+
+.streamline-section h2,
+.integration-section h2 {
+    line-height: 95%;
+}
+.streamline-section p,
+.integration-section p {
+    max-width: 250px;
+}
+
+.developer-section .section-para {
+    font-size: 1rem;
+    max-width: 740px;
+    margin-inline: auto;
+}
+.vertical-carousel-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    column-gap: 70px;
+}
+.vertical-carousel-buttons--wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-self: end;
+    margin-top: 50px;
+}
+.vertical-carousel-buttons--wrapper ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    text-align: left;
+    font-size: 1rem;
+    padding-left: 0;
+}
+.vertical-carousel-buttons--wrapper ul li {
+    padding-left: 30px;
+    border-left: 4px solid rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.35);;
+    padding-block: 9px;
+}
+.vertical-carousel-buttons--wrapper ul li.active {
+    border-left: 4px solid #fff;
+    color: #fff;
+}
+.vertical-carousel-buttons--wrapper .launch-network-button-wrapper a {
+    font-size: 1rem;
+    gap: 0px;
+    justify-content: space-between;
+}
+.vertical-carousel-item .slide-image {
+    width: 100%;
+}
+.launch-network-button-wrapper .api-hero-button::before {
+    height: 50px;
+    width: 50px;
+}
+.api-page footer {
+    margin-bottom: 10px !important;
+}
+.streamline-section .slide-image {
+    border: 1px solid #fff;
+    padding: 13px;
+    border-radius: 30px;
+}
+
+@media (max-width: 1200px) {
+    .hero-section .hero-right-images .mobile-image {
+        right: -40px;
+    }
+    .onboard-cards {
+        row-gap: 30px;
+    }
+    .block-wrapper,
+    .block-hero {
+        min-height: fit-content;
+    }
+    .onboard-card.activate-card .card-image {
+        width: 35%;
+    }
+}
+@media (min-width: 1024px) {
+    .block-wrapper {
+        min-height: initial;
+        height: initial !important;
+        max-height: 810px;
+        overflow: hidden;
+    }
+}
+@media (max-width: 992px) {
+    .navbar-nav {
+        text-align: center;
+    }
+    .nav-cta {
+        max-width: 189px;
+        padding-block: 15px;
+        margin-inline: auto;
+    }
+    .mobile-only {
+        display: block;
+    }
+    .desktop-only {
+        display: none;
+    }
+    .api-hero-button {
+        align-self: start !important;
+    }
+    .api-page-title ~ p {
+        max-width: 390px;
+    }
+    .hero-section .right-section {
+        max-width: initial;
+        width: 100%;
+    }
+    .hero-section .hero-right-images .code-image {
+        max-width: initial;
+    }
+    .hero-section .hero-right-images .mobile-image {
+        right: unset;
+        left: 30px;
+        top: 300px;
+        max-width: 275px;
+    }
+    .hero-section .hero-right-text p {
+        margin-left: auto;
+    }
+    .onboard-cards {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    
+    .onboard-card .card-para, .onboard-card .card-heading {
+        width: 95%;
+    }
+    .onboard-card.buying-card .card-image {
+        margin-top: -50px;
+    }
+    .onboard-users-section .section-headings p {
+        max-width: 409px;
+        margin-inline: auto
+    }
+    .onboard-users-section .section-headings {
+        max-width: 550px;
+    }
+    .carousel-buttons {
+        width: 100%;
+    }
+    .streamline-section h2, .integration-section h2 {
+        text-align: center;
+        max-width: 450px;
+        margin-inline: auto;
+    }
+    .streamline-section p, .integration-section p {
+        max-width: 300px;
+        margin-inline: auto;
+        text-align: center;
+    }
+    .streamline-section .slide-image {
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        padding: 6px;
+    }
+    .integration-wrapper{
+        flex-direction: column-reverse;
+    }
+    .vertical-carousel-container {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+    .vertical-carousel-buttons--wrapper ul {
+        font-size: 1.3rem;
+    }
+    .launch-network-button-wrapper.mobile-only {
+        max-width: 300px;
+        margin-inline: auto;
+        margin-top: 30px;
+    }
+    .carousel-inner {
+        overflow: visible;
+    }
+    .carousel-item .slide-image {
+        width: 100%;
+        overflow: visible;
+    }
+    .carousel-item .slide-image .slide-images {
+        position: relative;
+    }
+    .carousel-item .slide-image .slide-images .mobile-image {
+        position: absolute;
+        top: 285px;
+        left: 0;
+        width: 240px;
+    }
+    .carousel-text-section {
+        max-width: 440px;
+        margin-left: auto;
+    }
+    .carousel-text-section-2 {
+        max-width: 400px;
+        margin-inline: auto;
+        text-align: center;
+        text-align: center;
+    }
+    .carousel-text-section-2 .available-apis ul {
+        justify-content: center;
+    }
+    .carousel-text-section-2 h2{
+        max-width: 280px;
+        margin-inline: auto;
+    }
+    .carousel-text-section-2 p {
+        max-width: 300px;
+        margin-inline: auto;
+        width: 100%;
+    }
+    .carousel-content-wrapper {
+        flex-direction: column-reverse;
+    }
+}
+@media (max-width: 768px) {
+    section {
+        padding-bottom: 0px !important;
+    }
+    .carousel-item .slide-image .slide-images .mobile-image {
+        top: 214px;
+        width: 190px;
+    }
+    .carousel-text-section {
+        max-width: 330px;
+    }
+    .carousel-buttons {
+        padding-inline: 0px !important;
+    }
+    .hero-section .hero-right-text {
+        width: 50%;
+        margin-inline: auto 0 !important;
+        padding-block: 150px;
+    }
+    .hero-section .hero-right-images .mobile-image {
+        right: unset;
+        left: 16px;
+        top: 70%;
+        max-width: 48%;
+    }
+    .container {
+        margin-top: 20px;
+    }
+}
+@media (max-width: 576px) {
+    .carousel-buttons li a {
+        font-size: 0.6rem;
+        padding: 8px;
+    }
+    .carousel-item .slide-image .slide-images .mobile-image {
+        top: 150px;
+        width: 37%;
+    }
+    .carousel-text-section {
+        max-width: 62%;
+    }
+    .carousel-item h2 {
+        font-size: 24px;
+    }
+    .carousel-slide-title ~ p {
+        font-size: 14px;
+    }
+    .available-apis ul {
+        font-size: 12px;
+    }
+    .onboard-cards {
+        grid-template-columns: 1fr;
+    }
+    .hero-section .hero-right-images .mobile-image {
+        left: 6px;
+        top: 70%;
+        max-width: 48%;
+    }
+    .hero-section .hero-right-text {
+        max-width: 260px;
+        margin-inline: auto 0;
+        
+    }
+    .hero-section .hero-right-text p {
+        text-align: center;
+        max-width: 165px;
+        font-size: 16px;
+        margin-inline: auto;
+    }
+    .api-page-title {
+        font-size: 3rem;
+        max-width: 375px;
+    }
+    p {
+        font-size: 14px;
+    }
+    .hero-section .hero-right-text {
+        padding-block: 80px;
+    }
+    .onboard-users-section > div:first-child {
+        margin-block: 0px 23px !important;
+    }
+    .onboard-users-section .section-headings h2 {
+        font-size: 3rem;
+        max-width: 350px;
+    }
+    .hero-section .hero-right-text p {
+        font-size: 16px;
+        max-width: 170px;
+        line-height: 1.3;
+    }
+    section {
+        padding-bottom: 20px;
+    }
+    .onboard-users-section .section-headings p {
+        max-width: 288px;
+        line-height: 125%;
+        font-size: 15px;
+    }
+    .onboard-users-section .section-headings h2 {
+        font-size: 2rem;
+        max-width: 221px;
+        line-height: 100%;
+    }
+    .onboard-users-section .section-headings .row {
+        gap: 0px;
+    }
+    .onboard-card .card-heading h2 {
+        max-width: 140px;
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    .onboard-card .card-para p {
+        font-size: 13px;
+        line-height: 100%;
+        max-width: 74%;
+        margin-inline: auto;
+    }
+    .onboard-card.buying-card .card-image {
+        margin-top: -50px;
+    }
+    .onboard-card.activate-card .card-image {
+        margin-block: 20px 0px;
+    }
+    .onboard-users-section .section-headings h2 {
+        max-width: 246px;
+    }
+    .onboard-users-section .section-headings p {
+        max-width: 305px;
+    }
+    .carousel-buttons li a {
+        font-size: 0.8rem;
+    }
+    .streamline-section h2, .integration-section h2 {
+        font-size: 2rem;
+        max-width: 330px;
+    }
+    .developer-section h2 {
+        font-size: 1.9rem;
+        line-height: 100%;
+        max-width: 500px !important;
+        margin-top: 10px !important;
+    }
+    .developer-section .section-para {
+        font-size: 0.9rem;
+        max-width: 389px;
+        line-height: 100%;
+    }
+    .vertical-carousel-container,
+    .vertical-carousel-buttons--wrapper {
+        margin-top: 20px !important;
+    }
+}
