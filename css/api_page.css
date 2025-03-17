@@ -218,9 +218,10 @@ section {
 }
 
 .developer-section .section-para {
-    font-size: 1rem;
+    font-size: 1.1rem;
     max-width: 740px;
     margin-inline: auto;
+    line-height: 125%;
 }
 .vertical-carousel-container {
     display: grid;
@@ -271,6 +272,27 @@ section {
     border: 1px solid #fff;
     padding: 13px;
     border-radius: 30px;
+}
+
+.onboard-cards {
+    overflow: hidden;
+    /* opacity: 0; */
+    transition: opacity .4s linear;
+}
+/* .onboard-cards > div:first-child {
+    transform: translateX(-100%);
+}
+.onboard-cards > div:nth-child(2) {
+    transform: translateX(100%);
+} */
+/* .onboard-cards.active {
+    opacity: 1;
+} */
+.onboard-cards.active > div:first-child {
+    animation: slideInLeft 1s ease-out forwards;
+}
+.onboard-cards.active > div:nth-child(2) {
+    animation: slideInRight 1s ease-out forwards;
 }
 
 @media (max-width: 1200px) {
@@ -575,5 +597,26 @@ section {
     .vertical-carousel-container,
     .vertical-carousel-buttons--wrapper {
         margin-top: 20px !important;
+    }
+}
+
+
+
+/* Keyframes */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
     }
 }

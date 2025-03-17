@@ -567,160 +567,6 @@
                     </div>
                 </div>
             </section>
-
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    // Initialize the carousel with all automatic behaviors disabled
-                    const carouselElement = document.getElementById('distributionCarousel');
-                    const carousel = new bootstrap.Carousel(carouselElement, {
-                        interval: false,  // Disable auto cycling
-                        keyboard: false,  // Disable keyboard controls
-                        pause: 'hover',   // Set pause on hover (though interval is already false)
-                        wrap: true,       // Allow the carousel to cycle continuously
-                        touch: false      // Disable swiping on touch devices
-                    });
-
-                    // Prevent the default slide behavior
-                    carouselElement.addEventListener('slide.bs.carousel', function (event) {
-                        // Only proceed if triggered by our nav buttons
-                        if (!event.relatedTarget || !event.relatedTarget.hasAttribute('data-from-nav')) {
-                            event.preventDefault();
-                        }
-                    });
-
-                    // Get all nav links
-                    const navLinks = document.querySelectorAll('.carousel-buttons li');
-
-                    // Add click event to navigation links
-                    navLinks.forEach(navItem => {
-                        navItem.addEventListener('click', function (e) {
-                            // Don't proceed if the link is disabled
-                            if (this.querySelector('a.disabled')) return;
-
-                            e.preventDefault();
-
-                            // Remove active class from all nav items
-                            navLinks.forEach(item => item.classList.remove('active'));
-
-                            // Add active class to clicked nav item
-                            this.classList.add('active');
-
-                            // Get the slide index from data attribute
-                            const slideIndex = this.getAttribute('data-bs-slide-to');
-                            if (slideIndex) {
-                                // Mark the next slide so we know it's a valid navigation
-                                const nextSlide = document.querySelector(`.carousel-item:nth-child(${parseInt(slideIndex) + 1})`);
-                                if (nextSlide) {
-                                    nextSlide.setAttribute('data-from-nav', 'true');
-                                }
-
-                                // Move carousel to that slide with a controlled transition
-                                carousel.to(parseInt(slideIndex));
-
-                                // Clean up the attribute after transition
-                                setTimeout(() => {
-                                    if (nextSlide) {
-                                        nextSlide.removeAttribute('data-from-nav');
-                                    }
-                                }, 1300); // Just after transition completes
-                            }
-                        });
-                    });
-
-                    // Update navigation when carousel slides
-                    carouselElement.addEventListener('slid.bs.carousel', function () {
-                        // Get the current active slide index
-                        const activeSlide = this.querySelector('.carousel-item.active');
-                        const slides = Array.from(this.querySelectorAll('.carousel-item'));
-                        const activeIndex = slides.indexOf(activeSlide);
-
-                        // Remove active class from all nav items
-                        navLinks.forEach(item => item.classList.remove('active'));
-
-                        // Add active class to corresponding nav item
-                        if (activeIndex >= 0 && activeIndex < navLinks.length) {
-                            navLinks[activeIndex].classList.add('active');
-                        }
-                    });
-                });
-            </script>
-
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    // Initialize the carousel with all automatic behaviors disabled
-                    const vertCorousel = document.getElementById('vertical-carousel');
-                    const verticleCarousel = new bootstrap.Carousel(vertCorousel, {
-                        interval: false,  // Disable auto cycling
-                        keyboard: false,  // Disable keyboard controls
-                        pause: 'hover',   // Set pause on hover (though interval is already false)
-                        wrap: true,       // Allow the carousel to cycle continuously
-                        touch: false      // Disable swiping on touch devices
-                    });
-
-                    // Prevent the default slide behavior
-                    vertCorousel.addEventListener('slide.bs.carousel', function (event) {
-                        // Only proceed if triggered by our nav buttons
-                        if (!event.relatedTarget || !event.relatedTarget.hasAttribute('data-from-nav')) {
-                            event.preventDefault();
-                        }
-                    });
-
-                    // Get all nav links
-                    const verticalNavLinks = document.querySelectorAll('.vertical-carousel-buttons li');
-
-                    // Add click event to navigation links
-                    verticalNavLinks.forEach(verticalNavItem => {
-                        verticalNavItem.addEventListener('click', function (e) {
-                            // Don't proceed if the link is disabled
-                            if (this.querySelector('a.disabled')) return;
-
-                            e.preventDefault();
-
-                            // Remove active class from all nav items
-                            verticalNavLinks.forEach(item => item.classList.remove('active'));
-
-                            // Add active class to clicked nav item
-                            this.classList.add('active');
-
-                            // Get the slide index from data attribute
-                            const slideIndex = this.getAttribute('data-bs-slide-to');
-                            if (slideIndex) {
-                                // Mark the next slide so we know it's a valid navigation
-                                const nextSlide = document.querySelector(`.vertical-carousel-item:nth-child(${parseInt(slideIndex) + 1})`);
-                                if (nextSlide) {
-                                    nextSlide.setAttribute('data-from-nav', 'true');
-                                }
-
-                                // Move carousel to that slide with a controlled transition
-                                verticleCarousel.to(parseInt(slideIndex));
-
-                                // Clean up the attribute after transition
-                                setTimeout(() => {
-                                    if (nextSlide) {
-                                        nextSlide.removeAttribute('data-from-nav');
-                                    }
-                                }, 1300); // Just after transition completes
-                            }
-                        });
-                    });
-
-                    // Update navigation when carousel slides
-                    vertCorousel.addEventListener('slid.bs.carousel', function () {
-                        // Get the current active slide index
-                        const activeSlide = this.querySelector('.vertical-carousel-item.active');
-                        const slides = Array.from(this.querySelectorAll('.vertical-carousel-item'));
-                        const activeIndex = slides.indexOf(activeSlide);
-
-                        // Remove active class from all nav items
-                        verticalNavLinks.forEach(item => item.classList.remove('active'));
-
-                        // Add active class to corresponding nav item
-                        if (activeIndex >= 0 && activeIndex < verticalNavLinks.length) {
-                            verticalNavLinks[activeIndex].classList.add('active');
-                        }
-                    });
-                });
-            </script>
         </main>
 
         <footer class="col-lg-10 mx-auto pt-5 mt-5 text-body-secondary border-top mt-5 block-section">
@@ -823,227 +669,161 @@
             </div>
         </div>
     </div>
-
-
-    <script src="./js/bootstrap.bundle.min.js"></script>
+    <!-- carousel script start here -->
     <script>
-        var allowFormSubmit = false;
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize the carousel with all automatic behaviors disabled
+            const carouselElement = document.getElementById('distributionCarousel');
+            const carousel = new bootstrap.Carousel(carouselElement, {
+                interval: false,  // Disable auto cycling
+                keyboard: false,  // Disable keyboard controls
+                pause: 'hover',   // Set pause on hover (though interval is already false)
+                wrap: true,       // Allow the carousel to cycle continuously
+                touch: false      // Disable swiping on touch devices
+            });
 
-        $(document).ready(function () {
+            // Prevent the default slide behavior
+            carouselElement.addEventListener('slide.bs.carousel', function (event) {
+                // Only proceed if triggered by our nav buttons
+                if (!event.relatedTarget || !event.relatedTarget.hasAttribute('data-from-nav')) {
+                    event.preventDefault();
+                }
+            });
 
-            allowFormSubmit = true;
+            // Get all nav links
+            const navLinks = document.querySelectorAll('.carousel-buttons li');
 
-            // set date
-            var today = new Date();
-            var day = String(today.getDate()).padStart(2, '0');
-            var month = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-            var formattedDate = day + '/' + month;
-            $('.network-date').text(formattedDate);
+            // Add click event to navigation links
+            navLinks.forEach(navItem => {
+                navItem.addEventListener('click', function (e) {
+                    // Don't proceed if the link is disabled
+                    if (this.querySelector('a.disabled')) return;
 
-            // rename plan on change
-            $('#inputBrandName').on('input', function () {
-                function truncateString(str, maxLength) {
-                    if (str.length > maxLength) {
-                        return str.substring(0, maxLength) + "...";
-                    } else {
-                        return str;
+                    e.preventDefault();
+
+                    // Remove active class from all nav items
+                    navLinks.forEach(item => item.classList.remove('active'));
+
+                    // Add active class to clicked nav item
+                    this.classList.add('active');
+
+                    // Get the slide index from data attribute
+                    const slideIndex = this.getAttribute('data-bs-slide-to');
+                    if (slideIndex) {
+                        // Mark the next slide so we know it's a valid navigation
+                        const nextSlide = document.querySelector(`.carousel-item:nth-child(${parseInt(slideIndex) + 1})`);
+                        if (nextSlide) {
+                            nextSlide.setAttribute('data-from-nav', 'true');
+                        }
+
+                        // Move carousel to that slide with a controlled transition
+                        carousel.to(parseInt(slideIndex));
+
+                        // Clean up the attribute after transition
+                        setTimeout(() => {
+                            if (nextSlide) {
+                                nextSlide.removeAttribute('data-from-nav');
+                            }
+                        }, 1300); // Just after transition completes
                     }
-                }
-
-
-                var networkName = truncateString($(this).val(), 25);
-                var networkNameSim = truncateString($(this).val(), 10);
-                $('.network-name').html(networkName)
-                $('.network-name-sim').html(networkNameSim)
-                $('#launch-network-name').val($(this).val())
+                });
             });
 
-            // prevent action on plan form
-            $('.customise-network').submit(function (event) {
-                event.preventDefault(); // Prevent the default form submission
-            });
+            // Update navigation when carousel slides
+            carouselElement.addEventListener('slid.bs.carousel', function () {
+                // Get the current active slide index
+                const activeSlide = this.querySelector('.carousel-item.active');
+                const slides = Array.from(this.querySelectorAll('.carousel-item'));
+                const activeIndex = slides.indexOf(activeSlide);
 
-            // dont move page on disabled links
-            $('.disabled, .hidden-disabled').click(function (e) {
-                e.preventDefault();
-            });
+                // Remove active class from all nav items
+                navLinks.forEach(item => item.classList.remove('active'));
 
-            $('#email-cap-submit').click(function (e) {
-                e.preventDefault();
-
-                var booking_email = $('#email-cap-input-email').val();
-
-                if (/(.+)@(.+){2,}\.(.+){2,}/.test(booking_email) && allowFormSubmit) {
-
-                    // disable submits
-                    allowFormSubmit = false;
-
-                    // Get form data
-                    var formData = {
-                        email: booking_email,
-                        form: "email"
-                    };
-
-                    // Send data via AJAX
-                    $.ajax({
-                        type: 'POST',
-                        url: 'https://hook.eu2.make.com/95tl8vfpnexm2cxpwuviu3re2iarok9r',
-                        data: JSON.stringify(formData),
-                        contentType: 'application/json',
-                        success: function (response) {
-
-                            // Optionally, you can display a success message here
-
-                            $('#email-cap-input-email').val('')
-
-                            makeSuccessfulToast()
-                        },
-                        error: function (xhr, status, error) {
-
-                            // Optionally, you can display an error message here
-                        }
-                    });
-
-                } else {
-                    // invalid email
-                    alert('Please enter a valid email address and try again')
+                // Add active class to corresponding nav item
+                if (activeIndex >= 0 && activeIndex < navLinks.length) {
+                    navLinks[activeIndex].classList.add('active');
                 }
             });
-
-
-            // Toggle service type function
-            $('.toggle-service-type').click(function (e) {
-                e.preventDefault();
-            });
-
-            $('#service-type-api, #service-type-end-to-end').on("mouseenter", function (e) {
-                let grandParentEl = $(this).parents('.row');
-                const active = $(grandParentEl).children('.active');
-                active.removeClass('col-xl-8 active');
-                active.addClass('col-xl-4');
-
-                $(this).addClass('col-xl-8 active');
-                $(this).removeClass('col-xl-4');
-
-            });
-
-            $('#launch-network-submit').click(function (e) {
-                e.preventDefault();
-
-                var launch_email = $('#launch-network-email').val();
-
-                if (/(.+)@(.+){2,}\.(.+){2,}/.test(launch_email) && allowFormSubmit) {
-
-                    // disable submits
-                    allowFormSubmit = false;
-
-                    // Get form data
-                    var formData = {
-                        email: launch_email,
-                        name: $('#launch-network-name').val(),
-                        form: "launch"
-                    };
-
-                    // Send data via AJAX
-                    $.ajax({
-                        type: 'POST',
-                        url: 'https://hook.eu2.make.com/95tl8vfpnexm2cxpwuviu3re2iarok9r',
-                        data: JSON.stringify(formData),
-                        contentType: 'application/json',
-                        success: function (response) {
-
-                            // Optionally, you can display a success message here
-
-                            $('#launch-network-email').val('')
-                            $('#launch-network-name').val('')
-                            $('#launchNetworkModal').modal('hide');
-
-                            makeSuccessfulToast()
-                        },
-                        error: function (xhr, status, error) {
-
-                            // Optionally, you can display an error message here
-                        }
-                    });
-
-                } else {
-                    // invalid email
-                    alert('Please enter a valid email address and try again')
-                }
-            });
-
-
-
         });
-
-
-
-        function makeSuccessfulToast() {
-            confetti({
-                particleCount: 500,
-                spread: 95,
-                angle: 135,
-                origin: { x: 1, y: 1 },
-            })
-
-            $('body').append(`<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11" id="toast-container"><div class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true" id="liveToast">
-        <div class="d-flex">
-        <div class="toast-body">
-        <span class="fw-bolder">Form submitted successfully, thank you.</span>
-        </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        </div></div>`);
-
-            var toastLiveExample = document.getElementById('liveToast')
-            var toast = new bootstrap.Toast(toastLiveExample)
-            toast.show()
-
-            toastLiveExample.addEventListener('hidden.bs.toast', function () {
-                $('#toast-container').remove()
-            })
-
-            allowFormSubmit = true;
-        }
-
-
-        const sliderEl = document.querySelector("#rangeTariff")
-        const sliderValue = document.querySelector(".network-data")
-
-        sliderEl.addEventListener("input", (event) => {
-            const tempSliderValue = event.target.value;
-
-            let networkData = ""
-
-            switch (tempSliderValue) {
-                case '0':
-                    networkData = "5Gb"
-                    break;
-                case '25':
-                    networkData = "10Gb"
-                    break;
-                case '50':
-                    networkData = "15Gb"
-                    break;
-                case '75':
-                    networkData = "50Gb"
-                    break;
-                case '100':
-                    networkData = "Unlimited"
-                    break;
-            }
-
-            $('.network-data').each(function () {
-                $(this).html(networkData)
-            })
-
-            // sliderValue.textContent = networkData;
-
-            const progress = (tempSliderValue / sliderEl.max) * 100;
-            sliderEl.style.background = `linear-gradient(to right, #DCB3BA ${progress}%, #252525 ${progress}%)`;
-        })
-
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize the carousel with all automatic behaviors disabled
+            const vertCorousel = document.getElementById('vertical-carousel');
+            const verticleCarousel = new bootstrap.Carousel(vertCorousel, {
+                interval: false,  // Disable auto cycling
+                keyboard: false,  // Disable keyboard controls
+                pause: 'hover',   // Set pause on hover (though interval is already false)
+                wrap: true,       // Allow the carousel to cycle continuously
+                touch: false      // Disable swiping on touch devices
+            });
+
+            // Prevent the default slide behavior
+            vertCorousel.addEventListener('slide.bs.carousel', function (event) {
+                // Only proceed if triggered by our nav buttons
+                if (!event.relatedTarget || !event.relatedTarget.hasAttribute('data-from-nav')) {
+                    event.preventDefault();
+                }
+            });
+
+            // Get all nav links
+            const verticalNavLinks = document.querySelectorAll('.vertical-carousel-buttons li');
+
+            // Add click event to navigation links
+            verticalNavLinks.forEach(verticalNavItem => {
+                verticalNavItem.addEventListener('click', function (e) {
+                    // Don't proceed if the link is disabled
+                    if (this.querySelector('a.disabled')) return;
+
+                    e.preventDefault();
+
+                    // Remove active class from all nav items
+                    verticalNavLinks.forEach(item => item.classList.remove('active'));
+
+                    // Add active class to clicked nav item
+                    this.classList.add('active');
+
+                    // Get the slide index from data attribute
+                    const slideIndex = this.getAttribute('data-bs-slide-to');
+                    if (slideIndex) {
+                        // Mark the next slide so we know it's a valid navigation
+                        const nextSlide = document.querySelector(`.vertical-carousel-item:nth-child(${parseInt(slideIndex) + 1})`);
+                        if (nextSlide) {
+                            nextSlide.setAttribute('data-from-nav', 'true');
+                        }
+
+                        // Move carousel to that slide with a controlled transition
+                        verticleCarousel.to(parseInt(slideIndex));
+
+                        // Clean up the attribute after transition
+                        setTimeout(() => {
+                            if (nextSlide) {
+                                nextSlide.removeAttribute('data-from-nav');
+                            }
+                        }, 1300); // Just after transition completes
+                    }
+                });
+            });
+
+            // Update navigation when carousel slides
+            vertCorousel.addEventListener('slid.bs.carousel', function () {
+                // Get the current active slide index
+                const activeSlide = this.querySelector('.vertical-carousel-item.active');
+                const slides = Array.from(this.querySelectorAll('.vertical-carousel-item'));
+                const activeIndex = slides.indexOf(activeSlide);
+
+                // Remove active class from all nav items
+                verticalNavLinks.forEach(item => item.classList.remove('active'));
+
+                // Add active class to corresponding nav item
+                if (activeIndex >= 0 && activeIndex < verticalNavLinks.length) {
+                    verticalNavLinks[activeIndex].classList.add('active');
+                }
+            });
+        });
+    </script>
+    <!-- carousel script end here -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
 
@@ -1053,8 +833,31 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
 
 
-    <script type="module" src="./js/animation.js"></script>
-    <!-- <script type="module" src="./js/scroll-animation.js"></script> -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from(".buying-card", {
+            x: "-100%", 
+            opacity: 0, 
+            duration: 1.5,
+            scrollTrigger: {
+                trigger: ".onboard-cards",
+                start: "top 60%", // Starts when top of the container reaches 80% of viewport
+                toggleActions: "play none none none" // Plays once
+            }
+        });
+
+        gsap.from(".activate-card", {
+            x: "100%", 
+            opacity: 0, 
+            duration: 1.5,
+            scrollTrigger: {
+                trigger: ".onboard-cards",
+                start: "top 60%", 
+                toggleActions: "play none none none"
+            }
+        });
+    </script>
     <script type="module" src="./js/text-animation.js"></script>
 </body>
 
