@@ -98,10 +98,6 @@
     max-width: 419px;
     margin-inline: auto;
 }
-
-.logo-box-1, .logo-box-2, .logo-box-3, .logo-box-4, .logo-box-5, .logo-box-6, .logo-box-7, .logo-box-8 {
-    opacity: 1 !important;
-}
 .grid-container {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
