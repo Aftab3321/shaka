@@ -132,7 +132,7 @@
                     </div>
                     <div class="row my-5">
                         <div class="hero-cards">
-                            <div class="hero-card">
+                            <div class="hero-card hero-card-1">
                                 <div class="card-upper">
                                     <div class="image-wrapper">
                                         <img src="./img/end-card-1.png" alt="Messages in iPhone 15">
@@ -143,7 +143,7 @@
                                     <p>Only 4 minutes, making it a quick and efficient process</p>
                                 </div>
                             </div>
-                            <div class="hero-card">
+                            <div class="hero-card hero-card-2">
                                 <div class="card-upper">
                                     <div class="image-wrapper">
                                         <img src="./img/end-card-2.png" alt="Messages in iPhone 15">
@@ -155,7 +155,7 @@
                                         cost-effective</p>
                                 </div>
                             </div>
-                            <div class="hero-card">
+                            <div class="hero-card hero-card-3">
                                 <div class="card-upper">
                                     <div class="image-wrapper">
                                         <img src="./img/end-card-3.png" alt="Messages in iPhone 15">
@@ -837,6 +837,82 @@
                 e.preventDefault();
             });
         });
+    </script>
+    <script>
+        function getDeviceType() {
+            const userAgent = navigator.userAgent;
+            if (/Mobi|Android/i.test(userAgent)) {
+                return "Mobile";
+            } else if (/Tablet|iPad/i.test(userAgent)) {
+                return "Tablet";
+            } else {
+                return "Desktop";
+            }
+        }
+
+        const cards = document.querySelectorAll(".hero-card");
+        const cardContainer = document.querySelector(".hero-cards");
+
+    
+        function arrangeCards() {
+            const cards = document.querySelectorAll(".hero-card");
+            cards.forEach((card, index) => {
+                gsap.to(card, {
+                    y: index * 8, // Stack effect
+                    rotate: 0, // Slight rotation like fanned-out cards
+                    scale: 1, // Make lower cards slightly smaller
+                    zIndex: index,
+                    duration: 0.3
+                });
+            });
+        }
+
+        function arrangeMobileCards() {
+            arrangeCards()
+            cards.forEach((card, i) => {
+                card.addEventListener("click", function () {
+                    let clickedIndex = Array.from(cards).indexOf(this);
+
+                    // Bring clicked card to front
+                    gsap.to(this, {
+                        y: -10, // Move up slightly
+                        scale: 1.1,
+                        rotate: 0,
+                        duration: 0.3,
+                        ease: "power2.out",
+                        onComplete: () => {
+                            // Move clicked card to front in the stack
+                            cardContainer.appendChild(this);
+                            arrangeCards(); // Reorder remaining cards
+                        }
+                    });
+                });
+            });
+        }
+        function arrangeDesktopCards() {
+            const cards = document.querySelectorAll(".hero-card");
+            cards.forEach((card, index) => {
+                gsap.to(card, {
+                    y: 0, // Stack effect
+                    rotate: 0, // Slight rotation like fanned-out cards
+                    scale: 1, // Make lower cards slightly smaller
+                    zIndex: index,
+                    duration: 0.3
+                });
+            });
+        }
+        function handleResponsiveEffect() {
+            if (getDeviceType() == "Mobile") {
+                arrangeMobileCards();
+            } else {
+                arrangeDesktopCards()
+            }
+        }
+
+        // Run on load and resize
+        handleResponsiveEffect();
+        window.addEventListener("resize", handleResponsiveEffect);
+
     </script>
 
 </body>

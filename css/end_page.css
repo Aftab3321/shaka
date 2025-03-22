@@ -41,20 +41,20 @@
 .hero-card:first-child  .card-upper .image-wrapper{
     width: 65%;
 }
-.hero-card:first-child  .card-upper{
+.hero-card-1 .card-upper{
     align-items: end;
     background: url("../img/end-card-background-1.png");
     background-size: 150%;
     background-repeat: no-repeat;
     background-position: center center;
 }
-.hero-card:nth-child(2) .card-upper {
+.hero-card-2 .card-upper {
     background: url("../img/end-card-background-2.png");
     background-size: 150%;
     background-repeat: no-repeat;
     background-position: center center;
 }
-.hero-card:nth-child(3) .card-upper {
+.hero-card-3 .card-upper {
     background: url("../img/end-card-background-3.png");
     background-size: 150%;
     background-repeat: no-repeat;
@@ -766,6 +766,9 @@ details .dropdown-menu--end-page ul{
     }
 }
 @media (max-width: 1200px) {
+    .hero-cards {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
     .grid-container {
         grid-template-columns: repeat(6, 1fr);
     }
@@ -845,10 +848,10 @@ details .dropdown-menu--end-page ul{
         border: 4px solid rgba(255, 255, 255, 0.3);
     }
     .hero-card:nth-child(2) {
-        margin-top: 90px;
+        margin-top: 70px;
     }
     .hero-card:nth-child(3) {
-        margin-top: 180px;
+        margin-top: 140px;
     }
     .card-upper {
         height: 520px;
@@ -1060,6 +1063,24 @@ details .dropdown-menu--end-page ul{
         grid-row: span 12;
         order: 7;
     }
+    .hero-cards {
+        position: relative;
+        min-height: 670px;
+        display: block;
+    }
+
+    .hero-card {
+        position: absolute;
+        width: 94%;
+        margin-inline: auto;
+        cursor: pointer;
+        transition: 0.3s ease-out;
+        transform-origin: center bottom;
+    }
+    .card-upper .image-wrapper {
+        width: 90%;
+        object-fit: fill;
+    }
 }
 @media (max-width: 576px) {
     .card-upper {
@@ -1075,10 +1096,10 @@ details .dropdown-menu--end-page ul{
         max-width: 330px;
     }
     .hero-card:nth-child(2) {
-        margin-top: 70px;
+        margin-top: 55px;
     }
     .hero-card:nth-child(3) {
-        margin-top: 140px;
+        margin-top: 110px;
     }
     .onboard-users-section .section-headings h2 {
         max-width: 360px;
